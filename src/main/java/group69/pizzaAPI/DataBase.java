@@ -70,18 +70,18 @@ public class DataBase
 	public Order addOrder(OrderRequest orderRequest) throws OrderNotPlacedException
 	{
 		try {
-			List<Pizza> pizzas = convertToPizzas(orderRequest.getPizzaRequests());
+			List<Pizza> pizzas = convertToPizzas(orderRequest.getPizzas());
 		} catch (PizzaNotFoundException e) {
 			throw new OrderNotPlacedException("Unable to locate pizza");
 		}
 		
 		Order order = new Order(highestOrderId++, 
-				orderRequest.getCustomerId(), 
-				Status.IN_PROGRESS, 
+				orderRequest.getCustomer_id(), 
+				"IN_PROGRESS", 
 				LocalDateTime.now(), 
 				orderRequest.isTakeaway(), 
-				orderRequest.getPaymentType(),
-				orderRequest.getDeliveryAddress(),
+				orderRequest.getPayment_type(),
+				orderRequest.getDelivery_address(),
 				pizzas);
 		orders.add(order);
 		return order;
@@ -97,12 +97,12 @@ public class DataBase
 		}
 		if(ableToCancel(order))
 		{
-			if(order.getStatus().equals(Status.CANCELLED))
+			if(order.getStatus().equalsIgnoreCase("CANCELLED"))
 				throw new OrderNotCancelledException("Unable to cancel an already cancelled order");
-			if(order.getStatus().equals(Status.DELIVERED))
+			if(order.getStatus().equalsIgnoreCase("DELIVERED"))
 				throw new OrderNotCancelledException("Unable to cancel an already delivered order");
 		}
-		order.setStatus(Status.CANCELLED);
+		order.setStatus("CANCELLED");
 		return order;
 	}
 	
@@ -134,6 +134,7 @@ public class DataBase
 		return false;		
 	}
 
+
 	// -----------------------------------------------------------------------------------
 	/* Initialise a mock database for testing  */
 	private DataBase()
@@ -155,6 +156,14 @@ public class DataBase
 				"Maastricht",
 				"6213GA",
 				"Nederland");
+		
+		orders.add(new Order(0, 
+				1233456789, 
+				"ACCEPTED", 
+				LocalDateTime.now(), 
+				true, 
+				"buttons",
+				address,
+				List.of(pizzas.get(0), pizzas.get(0))));
 	}
-
 }

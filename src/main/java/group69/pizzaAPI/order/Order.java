@@ -9,7 +9,7 @@ public class Order
 {
 	private long id;
 	private long customerId;
-	private Status status;
+	private String status;
 	private LocalDateTime orderedAt;
 	private boolean takeaway;
 	private String paymentType;
@@ -23,7 +23,7 @@ public class Order
 	
 	public Order(long id, 
 				long customerId, 
-				Status status, 
+				String status, 
 				LocalDateTime orderedAt, 
 				boolean takeaway, 
 				String paymentType,
@@ -68,11 +68,11 @@ public class Order
 		this.customerId = customerId;
 	}
 
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status cancelled) {
+	public void setStatus(String cancelled) {
 		this.status = cancelled;
 	}
 

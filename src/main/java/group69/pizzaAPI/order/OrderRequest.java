@@ -1,3 +1,4 @@
+
 package group69.pizzaAPI.order;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import group69.pizzaAPI.pizza.PizzaRequest;
 
 public class OrderRequest 
 {
-	private List<PizzaRequest> pizzaRequests;
+	private List<PizzaRequest> pizzas;
 	private boolean takeaway;
 	private String payment_type;
 	private long customer_id;
@@ -18,26 +19,26 @@ public class OrderRequest
 		
 	}
 	
-	public OrderRequest(List<PizzaRequest> pizzaRequests,
+	public OrderRequest(List<PizzaRequest> pizzas,
 					boolean takeaway,
 					String payment_type,
 					long customer_id,
 					Address delivery_address) 
 	{
 		super();
-		this.pizzaRequests = pizzaRequests;
+		this.pizzas = pizzas;
 		this.takeaway = takeaway;
 		this.payment_type = payment_type;
 		this.customer_id = customer_id;
 		this.delivery_address = delivery_address;
 	}
 
-	public List<PizzaRequest> getPizzaRequests() {
-		return pizzaRequests;
+	public List<PizzaRequest> getPizzas() {
+		return pizzas;
 	}
 
-	public void setPizzasRequests(List<PizzaRequest> pizzaRequests) {
-		this.pizzaRequests = pizzaRequests;
+	public void setPizzas(List<PizzaRequest> pizzas) {
+		this.pizzas = pizzas;
 	}
 
 	public boolean isTakeaway() {
@@ -48,33 +49,33 @@ public class OrderRequest
 		this.takeaway = takeaway;
 	}
 
-	public String getPaymentType() {
+	public String getPayment_type() {
 		return payment_type;
 	}
 
-	public void setPaymentType(String paymentType) {
-		this.payment_type = paymentType;
+	public void setPayment_type(String payment_type) {
+		this.payment_type = payment_type;
 	}
 
-	public long getCustomerId() {
+	public long getCustomer_id() {
 		return customer_id;
 	}
 
-	public void setCustomerId(long customer_id) {
+	public void setCustomer_id(long customer_id) {
 		this.customer_id = customer_id;
 	}
 
-	public Address getDeliveryAddress() {
+	public Address getDelivery_address() {
 		return delivery_address;
 	}
 
-	public void setDeliveryAddress(Address deliveryAddress) {
-		this.delivery_address = deliveryAddress;
+	public void setDelivery_address(Address delivery_address) {
+		this.delivery_address = delivery_address;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderRequest [pizzas=" + pizzaRequests + ", takeaway=" + takeaway + ", payment_type=" + payment_type
+		return "OrderRequest [pizzas=" + pizzas + ", takeaway=" + takeaway + ", payment_type=" + payment_type
 				+ ", customer_id=" + customer_id + ", delivery_address=" + delivery_address + "]";
 	}
 }
