@@ -152,6 +152,12 @@ public class DataBase
 							false,
 							15.75,
 							meatTop));
+		String[] nicole = {"Chicken", "Mozzarella", "Sweetcorn"};
+		pizzas.add(new Pizza(2L,
+							"nicole",
+							false,
+							13.75,
+							nicole));
 		Address address = new Address("Tongerseweg 57B25",
 				"Maastricht",
 				"6213GA",
