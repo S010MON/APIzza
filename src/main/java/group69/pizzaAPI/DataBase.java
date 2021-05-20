@@ -139,25 +139,43 @@ public class DataBase
 	/* Initialise a mock database for testing  */
 	private DataBase()
 	{
-		String[] magTop = {"Mozzarella", "Tomatoes", "Bazil"};
-		pizzas.add(new Pizza(0L,
-							"margarita",
-							true,
-							12.50,
-							magTop));
-		
-		String[] meatTop = {"Meat", "More Meat", "Mystery Meat"};
+		String[] mag = {"Mozzarella", "Tomatoes", "Bazil"};
 		pizzas.add(new Pizza(1L,
-							"meatlovers",
-							false,
-							15.75,
-							meatTop));
-		String[] nicole = {"Chicken", "Mozzarella", "Sweetcorn"};
+				"Margarita",
+				true,
+				12.50,
+				mag));
+
+		String[] meat = {"Meat", "More Meat", "Mystery Meat"};
 		pizzas.add(new Pizza(2L,
-							"nicole",
-							false,
-							13.75,
-							nicole));
+				"Meatlovers",
+				false,
+				15.75,
+				meat));
+		String[] cyp = {"Chicken", "Haloumi", "Olives"};
+		pizzas.add(new Pizza(3L,
+				"Cyprus",
+				false,
+				14.00,
+				cyp));
+		String[] neo = {"Buffalo Mozzarella", "San Marzano", "Basil"};
+		pizzas.add(new Pizza(4L,
+				"Neapolitan",
+				false,
+				13.75,
+				neo));
+		String[] qfromage = {"Mozzarella", "Gorgonzola", "Fontina", "Parmigiano"};
+		pizzas.add(new Pizza(5L,
+				"Quattro Formaggi",
+				false,
+				12.75,
+				qfromage));
+		String[] nicole = {"Chicken", "Mozzarella", "Sweetcorn"};
+		pizzas.add(new Pizza(6L,
+				"Nicole Special",
+				false,
+				13.75,
+				nicole));
 		Address address = new Address("Tongerseweg 57B25",
 				"Maastricht",
 				"6213GA",
