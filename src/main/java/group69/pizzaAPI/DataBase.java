@@ -41,7 +41,7 @@ public class DataBase
 	{
 		for(Pizza each: pizzas)
 		{
-			if(each.getId() == id)
+			if(each.getPizza_id() == id)
 				return List.of(each);
 		}
 		throw new PizzaNotFoundException("Pizza Not Found");
@@ -110,7 +110,7 @@ public class DataBase
 	{
 		for(Pizza each: pizzas)
 		{
-			if(each.getId() == request.getId())
+			if(each.getPizza_id() == request.getId())
 				return each;
 		}
 		throw new PizzaNotFoundException("Pizza Not Found");

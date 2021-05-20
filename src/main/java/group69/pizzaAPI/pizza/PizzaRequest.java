@@ -2,7 +2,7 @@ package group69.pizzaAPI.pizza;
 
 public class PizzaRequest 
 {
-	private long id;
+	private long pizza_id;
 	private String note;
 	
 	public PizzaRequest() 
@@ -10,18 +10,18 @@ public class PizzaRequest
 		
 	}
 	
-	public PizzaRequest(long id, String note) 
+	public PizzaRequest(long pizza_id, String note)
 	{
-		this.id = id;
+		this.pizza_id = pizza_id;
 		this.note = note;
 	}
 
 	public long getId() {
-		return id;
+		return pizza_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long pizza_id) {
+		this.pizza_id = pizza_id;
 	}
 
 	public String getNote() {

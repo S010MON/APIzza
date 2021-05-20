@@ -19,8 +19,8 @@ public class PizzaService
 		return DataBase.getDataBase().getPizzas();
 	}
 	
-	public List<Pizza> getPizzaById(long id) throws PizzaNotFoundException
+	public List<Pizza> getPizzaById(long pizza_id) throws PizzaNotFoundException
 	{
-		return DataBase.getDataBase().getPizzaById(id);
+		return DataBase.getDataBase().getPizzaById(pizza_id);
 	}
 }
