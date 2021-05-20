@@ -32,11 +32,11 @@ public class PizzaController
 		return pizzaService.getPizza();
 	}
 	
-	@GetMapping(value = "/{id}")
-	public List<Pizza> getPizza(@PathVariable long id)
+	@GetMapping(value = "/{pizza_id}")
+	public List<Pizza> getPizza(@PathVariable long pizza_id)
 	{
 		try {
-			return pizzaService.getPizzaById(id);
+			return pizzaService.getPizzaById(pizza_id);
 		} catch(PizzaNotFoundException e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza_ID_Not_Found", e);
 		}
