@@ -49,7 +49,7 @@ public class DataBase
 	{
 		for(Order each: orders)
 		{
-			if(each.getCustomerId() == id)
+			if(each.getCustomer_id() == id)
 				return List.of(each);
 		}
 		throw new OrderNotFoundException("Customer Not Found");
@@ -69,20 +69,21 @@ public class DataBase
 	{
 		try {
 			List<Pizza> pizzas = convertToPizzas(orderRequest.getPizzas());
+
+			Order order = new Order(highestOrderId++,
+					orderRequest.getCustomer_id(),
+					"IN_PROGRESS",
+					LocalDateTime.now(),
+					orderRequest.isTakeaway(),
+					orderRequest.getPayment_type(),
+					orderRequest.getDelivery_address(),
+					pizzas);
+
+			orders.add(order);
+			return order;
 		} catch (PizzaNotFoundException e) {
 			throw new OrderNotPlacedException("Unable to locate pizza");
 		}
-		
-		Order order = new Order(highestOrderId++, 
-				orderRequest.getCustomer_id(), 
-				"IN_PROGRESS", 
-				LocalDateTime.now(), 
-				orderRequest.isTakeaway(), 
-				orderRequest.getPayment_type(),
-				orderRequest.getDelivery_address(),
-				pizzas);
-		orders.add(order);
-		return order;
 	}
 	
 	public Order cancelOrder(long orderId) throws OrderNotCancelledException
@@ -103,30 +104,30 @@ public class DataBase
 		order.setStatus("CANCELLED");
 		return order;
 	}
+
+	private List<Pizza> convertToPizzas(List<PizzaRequest> list) throws PizzaNotFoundException
+	{
+		ArrayList<Pizza> pizzas = new ArrayList<>();
+		for(PizzaRequest each: list)
+		{
+			pizzas.add(lookupPizza(each.getPizza_id()));
+		}
+		return pizzas;
+	}
 	
-	private Pizza getPizzaByRequest(PizzaRequest request) throws PizzaNotFoundException
+	private Pizza lookupPizza(long id) throws PizzaNotFoundException
 	{
 		for(Pizza each: pizzas)
 		{
-			if(each.getPizza_id() == request.getPizza_id())
+			if(id == each.getPizza_id())
 				return each;
 		}
 		throw new PizzaNotFoundException("Pizza Not Found");
 	}
 
-	private List<Pizza> convertToPizzas(List<PizzaRequest> list) throws PizzaNotFoundException
-	{
-		ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
-		for(PizzaRequest each: list)
-		{
-			pizzas.add(getPizzaByRequest(each));
-		}
-		return pizzas;
-	}
-	
 	private boolean ableToCancel(Order order)
 	{
-		LocalDateTime lastMomentToChange = order.getOrderedAt().plusMinutes(NO_CANCEL_AFTER);
+		LocalDateTime lastMomentToChange = order.getOrdered_at().plusMinutes(NO_CANCEL_AFTER);
 		if(LocalDateTime.now().isBefore(lastMomentToChange))
 			return true;
 		return false;		

@@ -8,12 +8,12 @@ import group69.pizzaAPI.pizza.Pizza;
 public class Order 
 {
 	private long id;
-	private long customerId;
+	private long customer_id;
 	private String status;
-	private LocalDateTime orderedAt;
+	private LocalDateTime ordered_at;
 	private boolean takeaway;
-	private String paymentType;
-	private Address deliveryAddress;
+	private String payment_type;
+	private Address delivery_address;
 	private List<Pizza> pizzas;
 	
 	public Order()
@@ -22,33 +22,33 @@ public class Order
 	}
 	
 	public Order(long id, 
-				long customerId, 
+				long customer_id,
 				String status, 
-				LocalDateTime orderedAt, 
+				LocalDateTime ordered_at,
 				boolean takeaway, 
-				String paymentType,
-				Address deliveryAddress,
+				String payment_type,
+				Address delivery_address,
 				List<Pizza> pizzas) 
 	{
 		this.id = id;
-		this.customerId = customerId;
+		this.customer_id = customer_id;
 		this.status = status;
-		this.orderedAt = orderedAt;
+		this.ordered_at = ordered_at;
 		this.takeaway = takeaway;
-		this.paymentType = paymentType;
-		this.deliveryAddress = deliveryAddress;
+		this.payment_type = payment_type;
+		this.delivery_address = delivery_address;
 		this.pizzas = pizzas;
 	}
 	
 	@Override
 	public String toString() {
 		return "Order [id=" + id + 
-				", customerId=" + customerId +
+				", customer_id=" + customer_id +
 				", status=" + status +
-				", orderedAt=" + orderedAt+ 
+				", orderedAt=" + ordered_at +
 				", takeaway=" + takeaway + 
-				", paymentType=" + paymentType + 
-				", deliveryAddress=" + deliveryAddress
+				", payment_type=" + payment_type +
+				", delivery_address=" + delivery_address
 				+ "]";
 	}
 
@@ -60,12 +60,12 @@ public class Order
 		this.id = id;
 	}
 
-	public long getCustomerId() {
-		return customerId;
+	public long getCustomer_id() {
+		return customer_id;
 	}
 
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
+	public void setCustomer_id(long customer_id) {
+		this.customer_id = customer_id;
 	}
 
 	public String getStatus() {
@@ -76,12 +76,12 @@ public class Order
 		this.status = cancelled;
 	}
 
-	public LocalDateTime getOrderedAt() {
-		return orderedAt;
+	public LocalDateTime getOrdered_at() {
+		return ordered_at;
 	}
 
-	public void setOrderedAt(LocalDateTime orderedAt) {
-		this.orderedAt = orderedAt;
+	public void setOrdered_at(LocalDateTime ordered_at) {
+		this.ordered_at = ordered_at;
 	}
 
 	public boolean isTakeaway() {
@@ -92,20 +92,20 @@ public class Order
 		this.takeaway = takeaway;
 	}
 
-	public String getPaymentType() {
-		return paymentType;
+	public String getPayment_type() {
+		return payment_type;
 	}
 
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
+	public void setPayment_type(String payment_type) {
+		this.payment_type = payment_type;
 	}
 
-	public Address getDeliveryAddress() {
-		return deliveryAddress;
+	public Address getDelivery_address() {
+		return delivery_address;
 	}
 
-	public void setDeliveryAddress(Address deliveryAddress) {
-		this.deliveryAddress = deliveryAddress;
+	public void setDelivery_address(Address delivery_address) {
+		this.delivery_address = delivery_address;
 	}
 
 	public List<Pizza> getPizzas() {

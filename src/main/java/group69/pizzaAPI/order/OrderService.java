@@ -38,7 +38,7 @@ public class OrderService
 	public List<Object> getDeliveryTime(long order_Id) throws OrderNotFoundException
 	{
 		Order order = DataBase.getDataBase().getOrderByOrderId(order_Id);
-		DeliveryTime delivery_time = new DeliveryTime(order.getOrderedAt().plusMinutes(25));
+		DeliveryTime delivery_time = new DeliveryTime(order.getOrdered_at().plusMinutes(25));
 		return List.of(order, delivery_time);
 	}
 }
