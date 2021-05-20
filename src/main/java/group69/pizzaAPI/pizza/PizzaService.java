@@ -13,7 +13,6 @@ import group69.pizzaAPI.exceptions.PizzaNotFoundException;
 @Service
 public class PizzaService 
 {
-	
 	public List<Pizza> getPizza()
 	{
 		return DataBase.getDataBase().getPizzas();

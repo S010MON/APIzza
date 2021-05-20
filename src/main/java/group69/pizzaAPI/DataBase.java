@@ -14,11 +14,9 @@ public class DataBase
 	
 	private static DataBase dataBase = new DataBase();
 	
-	public long highestCustomerId = 1L;
 	public long highestOrderId = 1L;
 	public List<Pizza> pizzas = new ArrayList<Pizza>();	
 	public List<Order> orders = new ArrayList<Order>();
-	
 
 	public static DataBase getDataBase()
 	{
@@ -37,11 +35,11 @@ public class DataBase
 		return orders;
 	}
 	
-	public List<Pizza> getPizzaById(long id) throws PizzaNotFoundException
+	public List<Pizza> getPizzaById(long pizza_id) throws PizzaNotFoundException
 	{
 		for(Pizza each: pizzas)
 		{
-			if(each.getPizza_id() == id)
+			if(each.getPizza_id() == pizza_id)
 				return List.of(each);
 		}
 		throw new PizzaNotFoundException("Pizza Not Found");
@@ -110,7 +108,7 @@ public class DataBase
 	{
 		for(Pizza each: pizzas)
 		{
-			if(each.getPizza_id() == request.getId())
+			if(each.getPizza_id() == request.getPizza_id())
 				return each;
 		}
 		throw new PizzaNotFoundException("Pizza Not Found");

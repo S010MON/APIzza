@@ -16,7 +16,7 @@ public class PizzaRequest
 		this.note = note;
 	}
 
-	public long getId() {
+	public long getPizza_id() {
 		return pizza_id;
 	}
 

@@ -30,14 +30,14 @@ public class OrderService
 		return DataBase.getDataBase().addOrder(orderRequest);
 	}
 	
-	public Order cancelOrder(long orderId) throws OrderNotCancelledException
+	public Order cancelOrder(long order_Id) throws OrderNotCancelledException
 	{
-		return DataBase.getDataBase().cancelOrder(orderId);
+		return DataBase.getDataBase().cancelOrder(order_Id);
 	}
 	
-	public List<Object> getDeliveryTime(long orderId) throws OrderNotFoundException
+	public List<Object> getDeliveryTime(long order_Id) throws OrderNotFoundException
 	{
-		Order order = DataBase.getDataBase().getOrderByOrderId(orderId);
+		Order order = DataBase.getDataBase().getOrderByOrderId(order_Id);
 		DeliveryTime delivery_time = new DeliveryTime(order.getOrderedAt().plusMinutes(25));
 		return List.of(order, delivery_time);
 	}
