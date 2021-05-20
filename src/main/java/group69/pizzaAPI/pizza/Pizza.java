@@ -4,26 +4,26 @@ public class Pizza
 {
 	private long id;
 	private String name;
-	private boolean vegeterian;
+	private boolean vegetarian;
 	private double price;
 	private String[] toppings;
 	private String note;
 
-	public Pizza(long id, String name, boolean vegeterian, double price, String[] toppings)
+	public Pizza(long id, String name, boolean vegetarian, double price, String[] toppings)
 	{
 		this.id = id;
 		this.name = name;
-		this.vegeterian = vegeterian;
+		this.vegetarian = vegetarian;
 		this.price = price;
 		this.toppings = toppings;
 		note = null;
 	}
 	
-	public Pizza(long id, String name, boolean vegeterian, double price, String[] toppings, String note)
+	public Pizza(long id, String name, boolean vegetarian, double price, String[] toppings, String note)
 	{
 		this.id = id;
 		this.name = name;
-		this.vegeterian = vegeterian;
+		this.vegetarian = vegetarian;
 		this.price = price;
 		this.toppings = toppings;
 		this.note = note;
@@ -31,7 +31,7 @@ public class Pizza
 	
 	@Override
 	public String toString() {
-		return "Pizza [id=" + id + ", name=" + name + ", vegeterian=" + vegeterian + ", price=" + price + "]";
+		return "Pizza [id=" + id + ", name=" + name + ", vegetarian=" + vegetarian + ", price=" + price + "]";
 	}
 	
 	public long getId() {
@@ -50,12 +50,12 @@ public class Pizza
 		this.name = name;
 	}
 
-	public boolean isVegeterian() {
-		return vegeterian;
+	public boolean isVegetarian() {
+		return vegetarian;
 	}
 
-	public void setVegeterian(boolean vegeterian) {
-		this.vegeterian = vegeterian;
+	public void setVegetarian(boolean vegetarian) {
+		this.vegetarian = vegetarian;
 	}
 
 	public double getPrice() {
@@ -80,10 +80,5 @@ public class Pizza
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-	
-	public PizzaWithoutToppings getWithoutTopping()
-	{
-		return new PizzaWithoutToppings(id, name, vegeterian, price, note);
 	}
 }
